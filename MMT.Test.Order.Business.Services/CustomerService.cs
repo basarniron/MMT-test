@@ -17,12 +17,7 @@ namespace MMT.Test.Order.Business.Services
 
         public async Task<UserDetailsResponse> GetCustomerDetails(RecentOrderRequest request)
         {
-            var userDetails = await _orderIntegrationService.GetUserDetails(request.User);
-
-            if (userDetails == null || request.CustomerId != userDetails.CustomerId)
-            {
-                throw new Exception("User Not Found");
-            }
+            var userDetails = await _orderIntegrationService.GetUserDetails(request.User);           
 
             return userDetails;
         }

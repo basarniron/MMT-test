@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MMT.Test.Order.Api.Errors;
 using MMT.Test.Order.Business.Contracts.Dtos.Request;
 using MMT.Test.Order.Business.Contracts.Dtos.Response;
 using MMT.Test.Order.Business.Contracts.Interfaces;
@@ -18,15 +19,37 @@ namespace MMT.Test.Order.Api.Controllers
         [HttpPost("order/recent")]
         public async Task<ActionResult<RecentOrderResponse>> GetMostRecentOrder([FromBody] RecentOrderRequest request)
         {
+            if (request == null || 
+                string.IsNullOrEmpty(request.CustomerId) || 
+                string.IsNullOrEmpty(request.User))
+            {
+                return ReturnBadRequest(Core.Constants.Errors.InvalidRequest);
+            }
+
             var recentOrder = await _orderService.GetRecentOrder(request);
-            return Ok(recentOrder);
+            if (recentOrder.StatusCode == 400) 
+            {
+                return ReturnBadRequest(Core.Constants.Errors.InvalidRequest);
+            }
+
+            return Ok(recentOrder.Data);
         }
 
-        [HttpPost("order/all")]
-        public async Task<ActionResult<Entities.Model.Order>> GetAllOrder()
+        [HttpPost("order/{customerId}/all")]
+        public async Task<ActionResult<Entities.Model.Order>> GetAllOrders(string customerId)
         {
-            var orders = await _orderService.GetAllOrder();
+            if (string.IsNullOrEmpty(customerId))
+            {
+                return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { Core.Constants.Errors.InvalidRequest } });
+            }
+
+            var orders = await _orderService.GetAllOrders(customerId);
             return Ok(orders);
+        }
+
+        private BadRequestObjectResult ReturnBadRequest(string message) 
+        {
+            return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { message } });
         }
     }
 }

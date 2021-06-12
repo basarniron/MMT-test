@@ -23,20 +23,26 @@ namespace MMT.Test.Order.Business.Services
             _customerService = customerService;
         }
 
-        public async Task<IReadOnlyList<Entities.Model.Order>> GetAllOrder()
+        public async Task<IReadOnlyList<Entities.Model.Order>> GetAllOrders(string customerId)
         {
-            var spec = new RecentOrderOfCustomer("C34454");
+            var spec = new AllOrdersOfCustomer(customerId);
             var result = await _orderRepository.ListAsync(spec);
             return result;
         }
 
-        public async Task<RecentOrderResponse> GetRecentOrder(RecentOrderRequest request)
+        public async Task<ResponseMessage<RecentOrderResponse>> GetRecentOrder(RecentOrderRequest request)
         {
             var userDetails = await _customerService.GetCustomerDetails(request);
+
+            if (userDetails == null || request.CustomerId != userDetails.CustomerId)
+            {
+                return new ResponseMessage<RecentOrderResponse>(400, "Invalid request");
+            }
+
             var spec = new RecentOrderOfCustomer(userDetails.CustomerId);
             var result = await _orderRepository.GetEntityWithSpec(spec);
 
-            RecentOrderResponse response = new RecentOrderResponse
+            var data = new RecentOrderResponse
             {
                 Customer = UserMappings.MapCustomer(userDetails),
                 Order = new Contracts.Dtos.OrderDto()
@@ -44,10 +50,12 @@ namespace MMT.Test.Order.Business.Services
 
             if (result != null) 
             {
-                response.Order = OrderMapping.MapRecentOrder(result, userDetails);                
+                data.Order = OrderMapping.MapRecentOrder(result, userDetails);                
             }
 
-            return response;
+            var responseMessage = new ResponseMessage<RecentOrderResponse>(200);
+            responseMessage.Data = data;
+            return responseMessage;
         }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MMT.Test.Order.Api.Extensions;
+using MMT.Test.Order.Api.Middleware;
 using MMT.Test.Order.Core.Constants;
 using MMT.Test.Order.Entities.Model;
 
@@ -53,6 +54,8 @@ namespace MMT.Test.Order.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<ExceptionMiddleware>();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();               

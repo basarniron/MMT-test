@@ -7,8 +7,8 @@ namespace MMT.Test.Order.Business.Contracts.Interfaces
 {
     public interface IOrderService
     {
-        Task<RecentOrderResponse> GetRecentOrder(RecentOrderRequest request);
+        Task<ResponseMessage<RecentOrderResponse>> GetRecentOrder(RecentOrderRequest request);
 
-        Task<IReadOnlyList<Entities.Model.Order>> GetAllOrder();
+        Task<IReadOnlyList<Entities.Model.Order>> GetAllOrders(string customerId);
     }
 }
