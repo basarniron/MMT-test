@@ -1,10 +1,7 @@
 ﻿using MMT.Test.Order.Business.Contracts.Dtos;
-using MMT.Test.Order.Business.Contracts.Dtos.Request;
-using MMT.Test.Order.Business.Contracts.Dtos.Response;
 using MMT.Test.Order.Core.Constants;
 using MMT.Test.Order.Core.Extensions;
 using MMT.Test.Order.Integration.Contracts.Messages.Response;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

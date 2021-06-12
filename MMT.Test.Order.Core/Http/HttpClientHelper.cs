@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System;
 
 namespace MMT.Test.Order.Core.Http
 {

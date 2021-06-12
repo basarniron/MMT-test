@@ -2,7 +2,6 @@
 using MMT.Test.Order.Business.Contracts.Interfaces;
 using MMT.Test.Order.Integration.Contracts;
 using MMT.Test.Order.Integration.Contracts.Messages.Response;
-using System;
 using System.Threading.Tasks;
 
 namespace MMT.Test.Order.Business.Services

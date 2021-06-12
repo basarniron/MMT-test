@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace MMT.Test.Order.Entities.Specifications
+﻿namespace MMT.Test.Order.Entities.Specifications
 {
     public class RecentOrderOfCustomer : BaseSpecifcation<Model.Order>
     {
