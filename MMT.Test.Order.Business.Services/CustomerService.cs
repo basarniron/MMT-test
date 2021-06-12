@@ -1,22 +1,30 @@
-﻿using MMT.Test.Order.Business.Contracts.Dtos;
+﻿using MMT.Test.Order.Business.Contracts.Dtos.Request;
 using MMT.Test.Order.Business.Contracts.Interfaces;
+using MMT.Test.Order.Integration.Contracts;
+using MMT.Test.Order.Integration.Contracts.Messages.Response;
+using System;
 using System.Threading.Tasks;
 
 namespace MMT.Test.Order.Business.Services
 {
     public class CustomerService : ICustomerService
     {
-        public Task<CustomerDto> GetCustomerDetails(string email)
+        private readonly IOrderIntegrationService _orderIntegrationService;
+        public CustomerService(IOrderIntegrationService orderIntegrationService) 
         {
-            if (string.IsNullOrEmpty(email))
+            _orderIntegrationService = orderIntegrationService;
+        }
+
+        public async Task<UserDetailsResponse> GetCustomerDetails(RecentOrderRequest request)
+        {
+            var userDetails = await _orderIntegrationService.GetUserDetails(request.User);
+
+            if (userDetails == null || request.CustomerId != userDetails.CustomerId)
             {
-                //TODO
+                throw new Exception("User Not Found");
             }
 
-            //Call integration layer            
-
-            return null;
-
+            return userDetails;
         }
     }
 }

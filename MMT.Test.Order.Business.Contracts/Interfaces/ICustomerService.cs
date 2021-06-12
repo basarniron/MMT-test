@@ -1,10 +1,11 @@
-﻿using MMT.Test.Order.Business.Contracts.Dtos;
+﻿using MMT.Test.Order.Business.Contracts.Dtos.Request;
+using MMT.Test.Order.Integration.Contracts.Messages.Response;
 using System.Threading.Tasks;
 
 namespace MMT.Test.Order.Business.Contracts.Interfaces
 {
     public interface ICustomerService
     {
-        Task<CustomerDto> GetCustomerDetails(string email);
+        Task<UserDetailsResponse> GetCustomerDetails(RecentOrderRequest request);
     }
 }

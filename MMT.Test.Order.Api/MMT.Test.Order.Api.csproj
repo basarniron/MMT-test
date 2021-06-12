@@ -13,6 +13,8 @@
     <ProjectReference Include="..\MMT.Test.Order.Business.Contracts\MMT.Test.Order.Business.Contracts.csproj" />
     <ProjectReference Include="..\MMT.Test.Order.Business.Services\MMT.Test.Order.Business.Services.csproj" />
     <ProjectReference Include="..\MMT.Test.Order.Entities\MMT.Test.Order.Entities.csproj" />
+    <ProjectReference Include="..\MMT.Test.Order.Integration.Contracts\MMT.Test.Order.Integration.Contracts.csproj" />
+    <ProjectReference Include="..\MMT.Test.Order.Integration.Services\MMT.Test.Order.Integration.Services.csproj" />
   </ItemGroup>
 
 </Project>

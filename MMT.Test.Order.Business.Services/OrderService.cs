@@ -12,11 +12,15 @@ namespace MMT.Test.Order.Business.Services
     public class OrderService : IOrderService
     {        
         private readonly IGenericRepository<Entities.Model.Order> _orderRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ICustomerService _customerService;
 
-        public OrderService(IGenericRepository<Entities.Model.Order> orderRepository) 
+
+
+        public OrderService(IGenericRepository<Entities.Model.Order> orderRepository,
+                            ICustomerService customerService) 
         {
             _orderRepository = orderRepository;
+            _customerService = customerService;
         }
 
         public async Task<IReadOnlyList<Entities.Model.Order>> GetAllOrder()
@@ -24,17 +28,24 @@ namespace MMT.Test.Order.Business.Services
             var spec = new RecentOrderOfCustomer("C34454");
             var result = await _orderRepository.ListAsync(spec);
             return result;
-
-            //var result = await _orderRepository.ListAllAsync();
-            //return result;
         }
 
         public async Task<RecentOrderResponse> GetRecentOrder(RecentOrderRequest request)
         {
-            var spec = new RecentOrderOfCustomer("C34454");
+            var userDetails = await _customerService.GetCustomerDetails(request);
+            var spec = new RecentOrderOfCustomer(userDetails.CustomerId);
             var result = await _orderRepository.GetEntityWithSpec(spec);
 
-            RecentOrderResponse response = request.Map(result);
+            RecentOrderResponse response = new RecentOrderResponse
+            {
+                Customer = UserMappings.MapCustomer(userDetails),
+                Order = new Contracts.Dtos.OrderDto()
+            };
+
+            if (result != null) 
+            {
+                response.Order = OrderMapping.MapRecentOrder(result, userDetails);                
+            }
 
             return response;
         }

@@ -6,5 +6,6 @@
         public const string ApiKey = "MMT:ApiKey";
         public const string ApiBaseUrl = "API:BaseUrl";
         public const string ProductDetailsApiEndpoint = "API:ProductDetailsEndpoint";
+        public const string ApiKeyQueryString = "?code={0}";
     }
 }

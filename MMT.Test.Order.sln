@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Api", "MMT.Test.Order.Api\MMT.Test.Order.Api.csproj", "{963316FE-C979-447F-A45E-D0B47A0D7B7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMT.Test.Order.Api", "MMT.Test.Order.Api\MMT.Test.Order.Api.csproj", "{963316FE-C979-447F-A45E-D0B47A0D7B7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation Layer", "1. Presentation Layer", "{CE01E6F4-139C-4DF9-A2E1-ED559A9D6381}"
 EndProject
@@ -15,17 +15,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Core", "5. Core", "{BEFD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Data Layer", "6. Data Layer", "{8837CF28-1D25-41E3-AC50-8711C7E0A206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Business.Contracts", "MMT.Test.Order.Business.Contracts\MMT.Test.Order.Business.Contracts.csproj", "{830BD636-3128-4B04-A161-2BC04D39BA28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMT.Test.Order.Business.Contracts", "MMT.Test.Order.Business.Contracts\MMT.Test.Order.Business.Contracts.csproj", "{830BD636-3128-4B04-A161-2BC04D39BA28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Business.Services", "MMT.Test.Order.Business.Services\MMT.Test.Order.Business.Services.csproj", "{6D3B614F-2856-4158-894E-E982E2E55783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMT.Test.Order.Business.Services", "MMT.Test.Order.Business.Services\MMT.Test.Order.Business.Services.csproj", "{6D3B614F-2856-4158-894E-E982E2E55783}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Entities", "MMT.Test.Order.Entities\MMT.Test.Order.Entities.csproj", "{3D872618-E1A1-4857-A4FF-F7538C9066A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMT.Test.Order.Entities", "MMT.Test.Order.Entities\MMT.Test.Order.Entities.csproj", "{3D872618-E1A1-4857-A4FF-F7538C9066A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Core", "MMT.Test.Order.Core\MMT.Test.Order.Core.csproj", "{A20CF38D-ADCE-47A5-A79D-ADBF480B1E30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMT.Test.Order.Core", "MMT.Test.Order.Core\MMT.Test.Order.Core.csproj", "{A20CF38D-ADCE-47A5-A79D-ADBF480B1E30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Data", "MMT.Test.Order.Data\MMT.Test.Order.Data.csproj", "{46708AD9-8D58-496B-BA49-03C9A2973419}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMT.Test.Order.Data", "MMT.Test.Order.Data\MMT.Test.Order.Data.csproj", "{46708AD9-8D58-496B-BA49-03C9A2973419}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Integration Layer", "3. Integration Layer", "{714454CD-097E-41AE-B933-84B6DFF276B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Integration.Contracts", "MMT.Test.Order.Integration.Contracts\MMT.Test.Order.Integration.Contracts.csproj", "{C4FF841E-FCA2-4370-8A83-BF4E1DCA3B9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMT.Test.Order.Integration.Services", "MMT.Test.Order.Integration.Services\MMT.Test.Order.Integration.Services.csproj", "{BD8F6C0F-E425-49FC-856C-CB6709D7A47E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{46708AD9-8D58-496B-BA49-03C9A2973419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46708AD9-8D58-496B-BA49-03C9A2973419}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46708AD9-8D58-496B-BA49-03C9A2973419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4FF841E-FCA2-4370-8A83-BF4E1DCA3B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4FF841E-FCA2-4370-8A83-BF4E1DCA3B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4FF841E-FCA2-4370-8A83-BF4E1DCA3B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4FF841E-FCA2-4370-8A83-BF4E1DCA3B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD8F6C0F-E425-49FC-856C-CB6709D7A47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD8F6C0F-E425-49FC-856C-CB6709D7A47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD8F6C0F-E425-49FC-856C-CB6709D7A47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD8F6C0F-E425-49FC-856C-CB6709D7A47E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +80,8 @@ Global
 		{3D872618-E1A1-4857-A4FF-F7538C9066A6} = {8CD25345-9E6E-4D34-A8B3-9F8B29F4624C}
 		{A20CF38D-ADCE-47A5-A79D-ADBF480B1E30} = {BEFD09E5-31AE-47C3-8B24-FFD656BE891C}
 		{46708AD9-8D58-496B-BA49-03C9A2973419} = {8837CF28-1D25-41E3-AC50-8711C7E0A206}
+		{C4FF841E-FCA2-4370-8A83-BF4E1DCA3B9A} = {714454CD-097E-41AE-B933-84B6DFF276B4}
+		{BD8F6C0F-E425-49FC-856C-CB6709D7A47E} = {714454CD-097E-41AE-B933-84B6DFF276B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D89C413-1D57-4FCD-B5BC-103AC678F1ED}
