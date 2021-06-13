@@ -13,12 +13,7 @@ using MMT.Test.Order.Entities.Model;
 namespace MMT.Test.Order.Api
 {
     public class Startup
-    {
-        //public Startup(IConfiguration configuration)
-        //{
-        //    Configuration = configuration;            
-        //}
-
+    {       
         public Startup(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -41,6 +36,14 @@ namespace MMT.Test.Order.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MMT.Test.Order.API", Version = "v1" });
             });
 
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
+                });
+            });
+
             services.AddApplicationServices();            
             services.AddDbContext<MmtContext>(options =>
                     options.UseSqlServer(Configuration[ConfigurationConstants.DefaultConntectionString]));
@@ -50,8 +53,7 @@ namespace MMT.Test.Order.Api
                         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseMiddleware<ExceptionMiddleware>();
