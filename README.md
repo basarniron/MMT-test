@@ -27,9 +27,9 @@ Add MMT:ConnectionString as a key and connection string as a value
 Development
 ---------------------------
 
-*Unit tests should be added
-*More exception handling and logging could be added
-*Comments, method summaries needs to be added
+* Unit tests should be added
+* More exception handling and logging could be added
+* Comments, method summaries needs to be added
 
 Production
 ----------------------------
