@@ -29,7 +29,8 @@ Development
 
 * Unit tests should be added
 * More exception handling and logging could be added
-* Comments, method summaries needs to be added
+* Comments and method summaries needs to be added
+* CORS->Allowed origins could be bound to a configuration
 
 Production
 ----------------------------
@@ -46,3 +47,4 @@ Add Environment variables
 Add MMT:ApiKey as a key and api key as a value
 Add MMT:ConnectionString as a key and connection string as a value 
 ```
+
