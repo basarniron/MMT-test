@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MMT.Test.Order.Api.Errors;
 
 namespace MMT.Test.Order.Api.Controllers
 {
@@ -6,5 +7,9 @@ namespace MMT.Test.Order.Api.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
+        protected BadRequestObjectResult ReturnBadRequest(string message)
+        {
+            return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { message } });
+        }
     }
 }

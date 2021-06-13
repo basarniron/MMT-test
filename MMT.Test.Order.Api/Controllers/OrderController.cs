@@ -40,16 +40,11 @@ namespace MMT.Test.Order.Api.Controllers
         {
             if (string.IsNullOrEmpty(customerId))
             {
-                return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { Core.Constants.Errors.InvalidRequest } });
+                return ReturnBadRequest(Core.Constants.Errors.InvalidRequest);
             }
 
             var orders = await _orderService.GetAllOrders(customerId);
             return Ok(orders);
-        }
-
-        private BadRequestObjectResult ReturnBadRequest(string message) 
-        {
-            return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { message } });
         }
     }
 }
