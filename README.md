@@ -28,7 +28,7 @@ Development
 ---------------------------
 
 * Unit tests should be added
-* More exception handling and logging could be added
+* More exception handling and logging should be added
 * Comments and method summaries needs to be added
 * CORS->Allowed origins could be bound to a configuration
 
