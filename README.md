@@ -2,7 +2,7 @@
 
 Setup
 --------------------------
-1. Restore nuget packages
+1. Restore nuget packages (unless they get triggered automatically)
 2. Set up API Key and ConnectionString
 Update appsettings.Development.json
 ```
