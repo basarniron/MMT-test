@@ -12,13 +12,17 @@ Update appsettings.Development.json
   },
 ```
 OR
+
 Add Environment variables
 * Add user variables by going to System Properties->Environment Variables-> User variables
+
 OR
+
 * Go to MMT.Test.Order.API project's properties->Debug->Environment variables
+```
 Add MMT:ApiKey as a key and api key as a value
 Add MMT:ConnectionString as a key and connection string as a value 
-
+```
 
 Development
 ---------------------------
@@ -38,5 +42,7 @@ Production
 
 Add Environment variables
 * Add user variables by going to System Properties->Environment Variables-> User variables
+```
 Add MMT:ApiKey as a key and api key as a value
 Add MMT:ConnectionString as a key and connection string as a value 
+```
